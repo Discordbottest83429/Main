@@ -1,0 +1,507 @@
+local library = {}
+
+--// Services
+local players = game:GetService("Players")
+
+function library:CreateWindow()
+    if game:GetService("CoreGui"):FindFirstChild("MainExploit") then
+        game:GetService("CoreGui").MainExploit:Destroy()
+    end
+    
+    local MainExploit = Instance.new("ScreenGui")
+    local Main = Instance.new("Frame")
+    local Holder = Instance.new("Frame")
+    local PlayerList = Instance.new("Frame")
+    local PlayerListHolder = Instance.new("Frame")
+    local PlayerListScroll = Instance.new("ScrollingFrame")
+    local UIListLayout = Instance.new("UIListLayout")
+    local EmptyServer = Instance.new("TextLabel")
+    local PlayerListNote = Instance.new("TextLabel")
+    local TradeSettings = Instance.new("Frame")
+    local TradeSettingsHolder = Instance.new("Frame")
+    local TradeSettingsScroll = Instance.new("ScrollingFrame")
+    local UIListLayout_2 = Instance.new("UIListLayout")
+    local TradeSettingsNote = Instance.new("TextLabel")
+    local ButtonHolder = Instance.new("Frame")
+    local UIListLayout_3 = Instance.new("UIListLayout")
+    local PlayerListButton = Instance.new("Frame")
+    local Click_4 = Instance.new("TextButton")
+    local UICorner_7 = Instance.new("UICorner")
+    local PlayerListButtonTitle = Instance.new("TextLabel")
+    local SettingsButton = Instance.new("Frame")
+    local Click_5 = Instance.new("TextButton")
+    local UICorner_8 = Instance.new("UICorner")
+    local SettingsButtonTitle = Instance.new("TextLabel")
+    local UICorner_9 = Instance.new("UICorner")
+    
+    MainExploit.Name = "MainExploit"
+    MainExploit.Parent = game:GetService("CoreGui")
+    MainExploit.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+    
+    Main.Name = "Main"
+    Main.Parent = MainExploit
+    Main.AnchorPoint = Vector2.new(0.5, 0.5)
+    Main.BackgroundColor3 = Color3.fromRGB(70, 190, 255)
+    Main.BorderSizePixel = 0
+    Main.LayoutOrder = 3
+    Main.Position = UDim2.new(0.5, 0, 0.449999988, 0)
+    Main.Size = UDim2.new(0, 280, 0, 252)
+    Main.ZIndex = 3
+    Main.Active = true
+    Main.Selectable = true
+    Main.Draggable = true
+    
+    Holder.Name = "Holder"
+    Holder.Parent = Main
+    Holder.AnchorPoint = Vector2.new(0.5, 0.5)
+    Holder.BackgroundColor3 = Color3.fromRGB(70, 190, 255)
+    Holder.BackgroundTransparency = 1.000
+    Holder.Position = UDim2.new(0.5, 0, 0.5, 0)
+    Holder.Size = UDim2.new(0, 274, 0, 243)
+    
+    PlayerList.Name = "PlayerList"
+    PlayerList.Parent = Holder
+    PlayerList.AnchorPoint = Vector2.new(0.5, 0.5)
+    PlayerList.BackgroundColor3 = Color3.fromRGB(70, 190, 255)
+    PlayerList.BackgroundTransparency = 1.000
+    PlayerList.Position = UDim2.new(0.5, 0, 0.5, 0)
+    PlayerList.Size = UDim2.new(0, 274, 0, 243)
+    
+    PlayerListHolder.Name = "PlayerListHolder"
+    PlayerListHolder.Parent = PlayerList
+    PlayerListHolder.AnchorPoint = Vector2.new(0.5, 0.5)
+    PlayerListHolder.BackgroundColor3 = Color3.fromRGB(70, 190, 255)
+    PlayerListHolder.BackgroundTransparency = 1.000
+    PlayerListHolder.ClipsDescendants = true
+    PlayerListHolder.Position = UDim2.new(0.5, 0, 0.600000024, 0)
+    PlayerListHolder.Size = UDim2.new(0, 260, 0, 194)
+    
+    PlayerListScroll.Name = "PlayerListScroll"
+    PlayerListScroll.Parent = PlayerListHolder
+    PlayerListScroll.Active = true
+    PlayerListScroll.AnchorPoint = Vector2.new(0.5, 0.5)
+    PlayerListScroll.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    PlayerListScroll.BackgroundTransparency = 1.000
+    PlayerListScroll.BorderSizePixel = 0
+    PlayerListScroll.ClipsDescendants = false
+    PlayerListScroll.Position = UDim2.new(0.5, 0, 0.5, 0)
+    PlayerListScroll.Size = UDim2.new(0, 253, 0, 184)
+    PlayerListScroll.CanvasSize = UDim2.new(0, 0, 0, 0)
+    PlayerListScroll.ScrollBarThickness = 5
+    PlayerListScroll.AutomaticCanvasSize = Enum.AutomaticSize.Y
+    
+    UIListLayout.Parent = PlayerListScroll
+    UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+    UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+    UIListLayout.Padding = UDim.new(0.0350000001, 0)
+    
+    EmptyServer.Name = "EmptyServer"
+    EmptyServer.Parent = PlayerListHolder
+    EmptyServer.AnchorPoint = Vector2.new(0.5, 0.5)
+    EmptyServer.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    EmptyServer.BackgroundTransparency = 1.000
+    EmptyServer.BorderSizePixel = 0
+    EmptyServer.LayoutOrder = 2
+    EmptyServer.Position = UDim2.new(0.5, 0, 0.449999988, 0)
+    EmptyServer.Size = UDim2.new(0, 250, 0, 150)
+    EmptyServer.Visible = false
+    EmptyServer.Font = Enum.Font.FredokaOne
+    EmptyServer.Text = "Your Server is Empty!"
+    EmptyServer.TextColor3 = Color3.fromRGB(255, 255, 255)
+    EmptyServer.TextScaled = true
+    EmptyServer.TextSize = 14.000
+    EmptyServer.TextWrapped = true
+    
+    PlayerListNote.Name = "PlayerListNote"
+    PlayerListNote.Parent = PlayerList
+    PlayerListNote.AnchorPoint = Vector2.new(0.5, 0.5)
+    PlayerListNote.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    PlayerListNote.BackgroundTransparency = 1.000
+    PlayerListNote.BorderSizePixel = 0
+    PlayerListNote.LayoutOrder = 2
+    PlayerListNote.Position = UDim2.new(0.5, 0, 0.100000001, 0)
+    PlayerListNote.Size = UDim2.new(0, 205, 0, 36)
+    PlayerListNote.Font = Enum.Font.FredokaOne
+    PlayerListNote.Text = "Select a Player to Force Trade!"
+    PlayerListNote.TextColor3 = Color3.fromRGB(255, 255, 255)
+    PlayerListNote.TextScaled = true
+    PlayerListNote.TextSize = 14.000
+    PlayerListNote.TextWrapped = true
+    
+    TradeSettings.Name = "TradeSettings"
+    TradeSettings.Parent = Holder
+    TradeSettings.AnchorPoint = Vector2.new(0.5, 0.5)
+    TradeSettings.BackgroundColor3 = Color3.fromRGB(70, 190, 255)
+    TradeSettings.BackgroundTransparency = 1.000
+    TradeSettings.Position = UDim2.new(0.5, 0, 0.5, 0)
+    TradeSettings.Size = UDim2.new(0, 274, 0, 243)
+    TradeSettings.Visible = false
+    
+    TradeSettingsHolder.Name = "TradeSettingsHolder"
+    TradeSettingsHolder.Parent = TradeSettings
+    TradeSettingsHolder.AnchorPoint = Vector2.new(0.5, 0.5)
+    TradeSettingsHolder.BackgroundColor3 = Color3.fromRGB(70, 190, 255)
+    TradeSettingsHolder.BackgroundTransparency = 1.000
+    TradeSettingsHolder.ClipsDescendants = true
+    TradeSettingsHolder.Position = UDim2.new(0.5, 0, 0.600000024, 0)
+    TradeSettingsHolder.Size = UDim2.new(0, 260, 0, 194)
+    
+    TradeSettingsScroll.Name = "TradeSettingsScroll"
+    TradeSettingsScroll.Parent = TradeSettingsHolder
+    TradeSettingsScroll.Active = true
+    TradeSettingsScroll.AnchorPoint = Vector2.new(0.5, 0.5)
+    TradeSettingsScroll.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    TradeSettingsScroll.BackgroundTransparency = 1.000
+    TradeSettingsScroll.BorderSizePixel = 0
+    TradeSettingsScroll.ClipsDescendants = false
+    TradeSettingsScroll.Position = UDim2.new(0.5, 0, 0.5, 0)
+    TradeSettingsScroll.Size = UDim2.new(0, 253, 0, 184)
+    TradeSettingsScroll.CanvasSize = UDim2.new(0, 0, 0, 0)
+    TradeSettingsScroll.ScrollBarThickness = 5
+    TradeSettingsScroll.AutomaticCanvasSize = Enum.AutomaticSize.Y
+    
+    UIListLayout_2.Parent = TradeSettingsScroll
+    UIListLayout_2.HorizontalAlignment = Enum.HorizontalAlignment.Center
+    UIListLayout_2.SortOrder = Enum.SortOrder.LayoutOrder
+    UIListLayout_2.Padding = UDim.new(0.0350000001, 0)
+    
+    TradeSettingsNote.Name = "TradeSettingsNote"
+    TradeSettingsNote.Parent = TradeSettings
+    TradeSettingsNote.AnchorPoint = Vector2.new(0.5, 0.5)
+    TradeSettingsNote.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    TradeSettingsNote.BackgroundTransparency = 1.000
+    TradeSettingsNote.BorderSizePixel = 0
+    TradeSettingsNote.LayoutOrder = 2
+    TradeSettingsNote.Position = UDim2.new(0.5, 0, 0.100000001, 0)
+    TradeSettingsNote.Size = UDim2.new(0, 205, 0, 36)
+    TradeSettingsNote.Font = Enum.Font.FredokaOne
+    TradeSettingsNote.Text = "Toggle Which Settings You Want!"
+    TradeSettingsNote.TextColor3 = Color3.fromRGB(255, 255, 255)
+    TradeSettingsNote.TextScaled = true
+    TradeSettingsNote.TextSize = 14.000
+    TradeSettingsNote.TextWrapped = true
+    
+    ButtonHolder.Name = "ButtonHolder"
+    ButtonHolder.Parent = Holder
+    ButtonHolder.AnchorPoint = Vector2.new(0.5, 0.5)
+    ButtonHolder.BackgroundColor3 = Color3.fromRGB(70, 190, 255)
+    ButtonHolder.BackgroundTransparency = 1.000
+    ButtonHolder.Position = UDim2.new(0.5, 0, 1.10000002, 0)
+    ButtonHolder.Size = UDim2.new(0, 274, 0, 36)
+    
+    UIListLayout_3.Parent = ButtonHolder
+    UIListLayout_3.FillDirection = Enum.FillDirection.Horizontal
+    UIListLayout_3.HorizontalAlignment = Enum.HorizontalAlignment.Center
+    UIListLayout_3.SortOrder = Enum.SortOrder.LayoutOrder
+    UIListLayout_3.VerticalAlignment = Enum.VerticalAlignment.Center
+    UIListLayout_3.Padding = UDim.new(0.0199999996, 0)
+    
+    PlayerListButton.Name = "PlayerListButton"
+    PlayerListButton.Parent = ButtonHolder
+    PlayerListButton.AnchorPoint = Vector2.new(0.5, 0.5)
+    PlayerListButton.BackgroundColor3 = Color3.fromRGB(255, 50, 255)
+    PlayerListButton.BorderSizePixel = 0
+    PlayerListButton.LayoutOrder = 4
+    PlayerListButton.Position = UDim2.new(0.834999979, 0, 0.5, 0)
+    PlayerListButton.Size = UDim2.new(0, 75, 0, 28)
+    
+    Click_4.Name = "Click"
+    Click_4.Parent = PlayerListButton
+    Click_4.AnchorPoint = Vector2.new(0.5, 0.5)
+    Click_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    Click_4.BackgroundTransparency = 1.000
+    Click_4.BorderSizePixel = 0
+    Click_4.Position = UDim2.new(0.5, 0, 0.5, 0)
+    Click_4.Size = UDim2.new(0, 75, 0, 28)
+    Click_4.Font = Enum.Font.SourceSans
+    Click_4.Text = ""
+    Click_4.TextColor3 = Color3.fromRGB(0, 0, 0)
+    Click_4.TextScaled = true
+    Click_4.TextSize = 14.000
+    Click_4.TextWrapped = true
+    
+    UICorner_7.CornerRadius = UDim.new(0.300000012, 0)
+    UICorner_7.Parent = PlayerListButton
+    
+    PlayerListButtonTitle.Name = "PlayerListButtonTitle"
+    PlayerListButtonTitle.Parent = PlayerListButton
+    PlayerListButtonTitle.AnchorPoint = Vector2.new(0.5, 0.5)
+    PlayerListButtonTitle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    PlayerListButtonTitle.BackgroundTransparency = 1.000
+    PlayerListButtonTitle.BorderSizePixel = 0
+    PlayerListButtonTitle.Position = UDim2.new(0.5, 0, 0.5, 0)
+    PlayerListButtonTitle.Size = UDim2.new(0, 64, 0, 21)
+    PlayerListButtonTitle.Font = Enum.Font.FredokaOne
+    PlayerListButtonTitle.Text = "Force Trade"
+    PlayerListButtonTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
+    PlayerListButtonTitle.TextScaled = true
+    PlayerListButtonTitle.TextSize = 14.000
+    PlayerListButtonTitle.TextWrapped = true
+    
+    SettingsButton.Name = "SettingsButton"
+    SettingsButton.Parent = ButtonHolder
+    SettingsButton.AnchorPoint = Vector2.new(0.5, 0.5)
+    SettingsButton.BackgroundColor3 = Color3.fromRGB(255, 150, 25)
+    SettingsButton.BorderSizePixel = 0
+    SettingsButton.LayoutOrder = 4
+    SettingsButton.Position = UDim2.new(0.834999979, 0, 0.5, 0)
+    SettingsButton.Size = UDim2.new(0, 75, 0, 28)
+    
+    Click_5.Name = "Click"
+    Click_5.Parent = SettingsButton
+    Click_5.AnchorPoint = Vector2.new(0.5, 0.5)
+    Click_5.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    Click_5.BackgroundTransparency = 1.000
+    Click_5.BorderSizePixel = 0
+    Click_5.Position = UDim2.new(0.5, 0, 0.5, 0)
+    Click_5.Size = UDim2.new(0, 75, 0, 28)
+    Click_5.Font = Enum.Font.SourceSans
+    Click_5.Text = ""
+    Click_5.TextColor3 = Color3.fromRGB(0, 0, 0)
+    Click_5.TextScaled = true
+    Click_5.TextSize = 14.000
+    Click_5.TextWrapped = true
+    
+    UICorner_8.CornerRadius = UDim.new(0.300000012, 0)
+    UICorner_8.Parent = SettingsButton
+    
+    SettingsButtonTitle.Name = "SettingsButtonTitle"
+    SettingsButtonTitle.Parent = SettingsButton
+    SettingsButtonTitle.AnchorPoint = Vector2.new(0.5, 0.5)
+    SettingsButtonTitle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    SettingsButtonTitle.BackgroundTransparency = 1.000
+    SettingsButtonTitle.BorderSizePixel = 0
+    SettingsButtonTitle.Position = UDim2.new(0.5, 0, 0.5, 0)
+    SettingsButtonTitle.Size = UDim2.new(0, 64, 0, 21)
+    SettingsButtonTitle.Font = Enum.Font.FredokaOne
+    SettingsButtonTitle.Text = "Trade Settings"
+    SettingsButtonTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
+    SettingsButtonTitle.TextScaled = true
+    SettingsButtonTitle.TextSize = 14.000
+    SettingsButtonTitle.TextWrapped = true
+    
+    UICorner_9.CornerRadius = UDim.new(0.0500000007, 0)
+    UICorner_9.Parent = Main
+
+    if #players:GetPlayers() == 1 then
+        PlayerListScroll.Visible = false
+        EmptyServer.Visible = true
+    else
+        PlayerListScroll.Visible = true
+        EmptyServer.Visible = false
+    end
+
+    Click_4.MouseButton1Click:Connect(function()
+        PlayerList.Visible = true
+        TradeSettings.Visible = false
+    end)
+    
+    Click_5.MouseButton1Click:Connect(function()
+        PlayerList.Visible = false
+        TradeSettings.Visible = true
+    end)
+
+    local a = {}
+
+    function a:CreatePlayerTemplate(plrName, callback)
+        plrName = plrName or "Error"
+        callback = callback or function() end
+        
+        if plrName == player.Name then return end
+    
+        if #players:GetPlayers() == 1 then
+            PlayerListScroll.Visible = false
+            EmptyServer.Visible = true
+        else
+            PlayerListScroll.Visible = true
+            EmptyServer.Visible = false
+        end
+    
+        local PlayerTemplate = Instance.new("Frame")
+        local UICorner = Instance.new("UICorner")
+        local TradeButton = Instance.new("Frame")
+        local Click = Instance.new("TextButton")
+        local UICorner_2 = Instance.new("UICorner")
+        local TradeTitle = Instance.new("TextLabel")
+        local PlayerName = Instance.new("TextLabel")
+    
+        PlayerTemplate.Name = tostring(plrName)
+        PlayerTemplate.Parent = PlayerListScroll
+        PlayerTemplate.AnchorPoint = Vector2.new(0.5, 0.5)
+        PlayerTemplate.BackgroundColor3 = Color3.fromRGB(54, 149, 199)
+        PlayerTemplate.BorderSizePixel = 0
+        PlayerTemplate.LayoutOrder = 4
+        PlayerTemplate.Position = UDim2.new(0.5, 0, 0.899999976, 0)
+        PlayerTemplate.Size = UDim2.new(0, 215, 0, 32)
+    
+        UICorner.CornerRadius = UDim.new(0.300000012, 0)
+        UICorner.Parent = PlayerTemplate
+    
+        TradeButton.Name = "TradeButton"
+        TradeButton.Parent = PlayerTemplate
+        TradeButton.AnchorPoint = Vector2.new(0.5, 0.5)
+        TradeButton.BackgroundColor3 = Color3.fromRGB(75, 255, 75)
+        TradeButton.BorderSizePixel = 0
+        TradeButton.LayoutOrder = 4
+        TradeButton.Position = UDim2.new(0.834999979, 0, 0.5, 0)
+        TradeButton.Size = UDim2.new(0, 59, 0, 23)
+    
+        Click.Name = "Click"
+        Click.Parent = TradeButton
+        Click.AnchorPoint = Vector2.new(0.5, 0.5)
+        Click.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+        Click.BackgroundTransparency = 1.000
+        Click.BorderSizePixel = 0
+        Click.Position = UDim2.new(0.5, 0, 0.5, 0)
+        Click.Size = UDim2.new(0, 59, 0, 23)
+        Click.Font = Enum.Font.SourceSans
+        Click.Text = ""
+        Click.TextColor3 = Color3.fromRGB(0, 0, 0)
+        Click.TextScaled = true
+        Click.TextSize = 14.000
+        Click.TextWrapped = true
+    
+        UICorner_2.CornerRadius = UDim.new(0.300000012, 0)
+        UICorner_2.Parent = TradeButton
+    
+        TradeTitle.Name = "TradeTitle"
+        TradeTitle.Parent = TradeButton
+        TradeTitle.AnchorPoint = Vector2.new(0.5, 0.5)
+        TradeTitle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+        TradeTitle.BackgroundTransparency = 1.000
+        TradeTitle.BorderSizePixel = 0
+        TradeTitle.Position = UDim2.new(0.5, 0, 0.5, 0)
+        TradeTitle.Size = UDim2.new(0, 50, 0, 17)
+        TradeTitle.Font = Enum.Font.FredokaOne
+        TradeTitle.Text = "Trade"
+        TradeTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
+        TradeTitle.TextScaled = true
+        TradeTitle.TextSize = 14.000
+        TradeTitle.TextWrapped = true
+    
+        PlayerName.Name = "PlayerName"
+        PlayerName.Parent = PlayerTemplate
+        PlayerName.AnchorPoint = Vector2.new(0.5, 0.5)
+        PlayerName.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+        PlayerName.BackgroundTransparency = 1.000
+        PlayerName.BorderSizePixel = 0
+        PlayerName.Position = UDim2.new(0.349999994, 0, 0.5, 0)
+        PlayerName.Size = UDim2.new(0, 134, 0, 19)
+        PlayerName.Font = Enum.Font.FredokaOne
+        PlayerName.Text = tostring(plrName)
+        PlayerName.TextColor3 = Color3.fromRGB(255, 255, 255)
+        PlayerName.TextScaled = true
+        PlayerName.TextSize = 14.000
+        PlayerName.TextWrapped = true
+    
+        Click.MouseButton1Click:Connect(function()
+            pcall(callback, PlayerTemplate)
+        end)
+    end
+
+    function a:RemovePlayerFrame(plrName)
+        if PlayerListScroll:FindFirstChild(plrName) then
+            PlayerListScroll[plrName]:Destroy()
+        end
+    end
+
+    function a:CreateSettingButton(index, whichSetting, callback)
+        local toggled = false
+    
+        whichSetting = whichSetting or "New Setting"
+        index = index or 1
+        callback = callback or function() end
+    
+        local SettingTemplate = Instance.new("Frame")
+        local UICorner_3 = Instance.new("UICorner")
+        local ToggleButton = Instance.new("Frame")
+        local Click_2 = Instance.new("TextButton")
+        local UICorner_4 = Instance.new("UICorner")
+        local ToggleTitle = Instance.new("TextLabel")
+        local SettingName = Instance.new("TextLabel")
+    
+        SettingTemplate.Name = "SettingTemplate"
+        SettingTemplate.Parent = TradeSettingsScroll
+        SettingTemplate.AnchorPoint = Vector2.new(0.5, 0.5)
+        SettingTemplate.BackgroundColor3 = Color3.fromRGB(54, 149, 199)
+        SettingTemplate.BorderSizePixel = 0
+        SettingTemplate.LayoutOrder = index
+        SettingTemplate.Position = UDim2.new(0.5, 0, 0.899999976, 0)
+        SettingTemplate.Size = UDim2.new(0, 215, 0, 32)
+    
+        UICorner_3.CornerRadius = UDim.new(0.300000012, 0)
+        UICorner_3.Parent = SettingTemplate
+    
+        ToggleButton.Name = "ToggleButton"
+        ToggleButton.Parent = SettingTemplate
+        ToggleButton.AnchorPoint = Vector2.new(0.5, 0.5)
+        ToggleButton.BackgroundColor3 = Color3.fromRGB(255, 75, 75)
+        ToggleButton.BorderSizePixel = 0
+        ToggleButton.LayoutOrder = 4
+        ToggleButton.Position = UDim2.new(0.834999979, 0, 0.5, 0)
+        ToggleButton.Size = UDim2.new(0, 59, 0, 23)
+    
+        Click_2.Name = "Click"
+        Click_2.Parent = ToggleButton
+        Click_2.AnchorPoint = Vector2.new(0.5, 0.5)
+        Click_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+        Click_2.BackgroundTransparency = 1.000
+        Click_2.BorderSizePixel = 0
+        Click_2.Position = UDim2.new(0.5, 0, 0.5, 0)
+        Click_2.Size = UDim2.new(0, 59, 0, 23)
+        Click_2.Font = Enum.Font.SourceSans
+        Click_2.Text = ""
+        Click_2.TextColor3 = Color3.fromRGB(0, 0, 0)
+        Click_2.TextScaled = true
+        Click_2.TextSize = 14.000
+        Click_2.TextWrapped = true
+    
+        UICorner_4.CornerRadius = UDim.new(0.300000012, 0)
+        UICorner_4.Parent = ToggleButton
+    
+        ToggleTitle.Name = "ToggleTitle"
+        ToggleTitle.Parent = ToggleButton
+        ToggleTitle.AnchorPoint = Vector2.new(0.5, 0.5)
+        ToggleTitle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+        ToggleTitle.BackgroundTransparency = 1.000
+        ToggleTitle.BorderSizePixel = 0
+        ToggleTitle.Position = UDim2.new(0.5, 0, 0.5, 0)
+        ToggleTitle.Size = UDim2.new(0, 50, 0, 17)
+        ToggleTitle.Font = Enum.Font.FredokaOne
+        ToggleTitle.Text = "Off"
+        ToggleTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
+        ToggleTitle.TextScaled = true
+        ToggleTitle.TextSize = 14.000
+        ToggleTitle.TextWrapped = true
+    
+        SettingName.Name = "SettingName"
+        SettingName.Parent = SettingTemplate
+        SettingName.AnchorPoint = Vector2.new(0.5, 0.5)
+        SettingName.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+        SettingName.BackgroundTransparency = 1.000
+        SettingName.BorderSizePixel = 0
+        SettingName.Position = UDim2.new(0.349999994, 0, 0.5, 0)
+        SettingName.Size = UDim2.new(0, 134, 0, 19)
+        SettingName.Font = Enum.Font.FredokaOne
+        SettingName.Text = tostring(whichSetting)
+        SettingName.TextColor3 = Color3.fromRGB(255, 255, 255)
+        SettingName.TextScaled = true
+        SettingName.TextSize = 14.000
+        SettingName.TextWrapped = true
+    
+        Click_2.MouseButton1Click:Connect(function()
+            toggled = not toggled
+            if toggled then
+                ToggleButton.BackgroundColor3 = Color3.fromRGB(75, 255, 75)
+                ToggleTitle.Text = "On"
+            else
+                ToggleButton.BackgroundColor3 = Color3.fromRGB(255, 75, 75)
+                ToggleTitle.Text = "Off"
+            end
+            pcall(callback, toggled)
+        end)
+    end
+    return a
+end
+
+return library
